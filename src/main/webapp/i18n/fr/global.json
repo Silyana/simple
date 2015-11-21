@@ -6,6 +6,9 @@
             "home": "Accueil",
             "entities": {
                 "main": "Entités",
+                "view" : "Vue",
+                "product": "Product",
+                "cart": "Cart",
                 "additionalEntity": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

@@ -1,0 +1,56 @@
+<div>
+    <h2 translate="simpleApp.cart.home.title">Carts</h2>
+    <jh-alert></jh-alert>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <button class="btn btn-primary" ui-sref="cart.new">
+                    <span class="glyphicon glyphicon-flash"></span> <span translate="simpleApp.cart.home.createLabel">Create a new Cart</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th translate="global.field.id">ID</th>
+                    <th translate="simpleApp.cart.user">user</th>
+                    <th translate="simpleApp.cart.product">product</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="cart in carts track by cart.id">
+                    <td><a ui-sref="cart.detail({id:cart.id})">{{cart.id}}</a></td>
+                    <td>
+                        {{cart.user.id}}
+                    </td>
+                    <td>
+                        <span ng-repeat="product in cart.products">
+                            <a class="form-control-static" ui-sref="product.detail({id: {{product.id}}})">{{product.name}}</a>{{$last ? '' : ', '}}
+                        <span>
+                    </td>
+                    <td>
+                        <button type="submit"
+                                ui-sref="cart.detail({id:cart.id})"
+                                class="btn btn-info btn-sm">
+                            <span class="glyphicon glyphicon-eye-open"></span>&nbsp;<span translate="entity.action.view"> View</span>
+                        </button>
+                        <button type="submit"
+                                ui-sref="cart.edit({id:cart.id})"
+                                class="btn btn-primary btn-sm">
+                            <span class="glyphicon glyphicon-pencil"></span>&nbsp;<span translate="entity.action.edit"> Edit</span>
+                        </button>
+                        <button type="submit"
+                                ui-sref="cart.delete({id:cart.id})"
+                                class="btn btn-danger btn-sm">
+                            <span class="glyphicon glyphicon-remove-circle"></span>&nbsp;<span translate="entity.action.delete"> Delete</span>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
