@@ -28,6 +28,16 @@
                     <span>
                 </td>
             </tr>
+            <tr>
+                <td>
+                    <span>Price</span>
+                </td>
+                <td>
+                    <span ng-repeat="product in cart.products">
+                        <a class="form-control-static" ui-sref="product.detail({id: {{product.id}}})">{{product.price}}</a>{{$last ? '' : ', '}}
+                    <span>
+                </td>
+            </tr>
             </tbody>
         </table>
     </div>
