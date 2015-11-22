@@ -6,10 +6,13 @@ angular.module('simpleApp')
             .state('modal', {
                 parent: 'site',
                 url: '/modal',
+                data: {
+                    roles: ['ROLE_USER']
+                },
                 views: {
                     'content@': {
                         templateUrl: 'scripts/app/modal/modal.html',
-                        //controller: 'MainController'
+                        controller: 'ModalController'
                     }
                 }
             });
