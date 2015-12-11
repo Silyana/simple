@@ -20,3 +20,4 @@ So we have to :
    - create newsletter
    - remove id field in product description
    - user shouldn't see all carts, just the one he is filling
+   - don't forget to check i18n files

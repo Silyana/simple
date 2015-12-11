@@ -112,5 +112,5 @@
         "NotNull": "Field {{fieldName}} cannot be empty!",
         "Size": "Field {{fieldName}} does not meet min/max size requirements!"
     },
-    "footer": "Ceci est votre pied de page"
+    "footer": "Bienvenue sur Swaggy Jhipster"
 }

@@ -1,7 +1,7 @@
 {
     "main": {
-        "title": "Bienvenue, Java Hipster !",
-        "subtitle": "Ceci est votre page d'accueil",
+        "title": "Bienvenue, Swaggy Hipster !",
+        "subtitle": "Voilà nos dernières nouvelles",
         "logged": {
             "message": "Vous êtes connecté en tant que \"{{username}}\"."
         },
@@ -9,7 +9,7 @@
         "link": {
             "homepage": "Page d'accueil de JHipster",
             "stackoverflow": "JHipster sur Stack Overflow",
-            "bugtracker": "JHipster bug tracker",
+            "bugtracker": "Swaggy Jhipster sur Github",
             "chat": "JHipster public chat room",
             "contact": "Contactez-nous sur Twitter @java_hipster"
         },
