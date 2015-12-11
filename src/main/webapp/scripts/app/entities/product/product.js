@@ -51,7 +51,7 @@ angular.module('simpleApp')
                 parent: 'product',
                 url: '/new',
                 data: {
-                    authorities: ['ROLE_USER'],
+                    authorities: ['ROLE_ADMIN'], //change role here to allow type of user to access the page product-dialog.html
                 },
                 onEnter: ['$stateParams', '$state', '$modal', function($stateParams, $state, $modal) {
                     $modal.open({

@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-4">
-                <button class="btn btn-primary" ui-sref="product.new">
+                <button has-authority="ROLE_ADMIN" class="btn btn-primary" ui-sref="product.new"> <!-- added has-authority to show the button to admins only -->
                     <span class="glyphicon glyphicon-flash"></span> <span translate="simpleApp.product.home.createLabel">Create a new Product</span>
                 </button>
             </div>
