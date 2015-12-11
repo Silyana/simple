@@ -15,7 +15,7 @@
         <table class="table table-striped">
             <thead>
                 <tr>
-                    <th translate="global.field.id">ID</th>
+                    <th has-authority="ROLE_ADMIN" translate="global.field.id">ID</th> <!-- has-authority allows admins only to see the products' ID column name -->
                     <th translate="simpleApp.product.name">Name</th>
                     <th translate="simpleApp.product.price">Price</th>
                     <th translate="simpleApp.product.description">Description</th>
@@ -24,7 +24,7 @@
             </thead>
             <tbody>
                 <tr ng-repeat="product in products track by product.id">
-                    <td><a ui-sref="product.detail({id:product.id})">{{product.id}}</a></td>
+                    <td has-authority="ROLE_ADMIN"><a ui-sref="product.detail({id:product.id})">{{product.id}}</a></td> <!-- has-authority allows admins only to see the products' ids -->
                     <td>{{product.name}}</td>
                     <td>{{product.price}}</td>
                     <td>{{product.description}}</td>
