@@ -11,3 +11,12 @@ User :
       - Description produit : nom / prix / description / photo / référence / ajouter au panier (avec quantité)
       - panier : description panier
       - se connecter / settings
+
+So we have to :
+   - change home page
+   - set new authorisations
+   - create product card
+   - create product description card
+   - create newsletter
+   - remove id field in product description
+   - user shouldn't see all carts, just the one he is filling
