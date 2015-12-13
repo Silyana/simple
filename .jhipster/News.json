@@ -4,10 +4,18 @@
         {
             "fieldId": 1,
             "fieldName": "text",
-            "fieldType": "String"
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldId": 2,
+            "fieldName": "date",
+            "fieldType": "LocalDate"
         }
     ],
-    "changelogDate": "20151213130316",
+    "changelogDate": "20151213154313",
     "dto": "no",
     "pagination": "no"
 }

@@ -2,20 +2,21 @@
     "simpleApp": {
         "news" : {
             "home": {
-                "title": "News",
-                "createLabel": "Créer une nouvelle News",
-                "createOrEditLabel": "Créer ou éditer une News"
+                "title": "Newss",
+                "createLabel": "Créer un nouveau News",
+                "createOrEditLabel": "Créer ou éditer un News"
             },
-            "created": "Une nouvelle News a été créée avec l'identifiant {{ param }}",
-            "updated": "La News avec l'identifiant {{ param }} a été mise à jour",
-            "deleted": "La News avec l'identifiant {{ param }} a été supprimée",
+            "created": "Un nouveau News a été créé avec l'identifiant {{ param }}",
+            "updated": "Le News avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le News avec l'identifiant {{ param }} a été supprimé",
             "delete": {
-                "question": "Etes-vous certain de vouloir supprimer la News {{ id }} ?"
+                "question": "Etes-vous certain de vouloir supprimer le News {{ id }} ?"
             },
             "detail": {
                 "title": "News"
             },
-            "text": "Text"
+            "text": "Text",
+            "date": "Date"
         }
     }
 }

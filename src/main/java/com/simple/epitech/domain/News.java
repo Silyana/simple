@@ -2,8 +2,10 @@ package com.simple.epitech.domain;
 
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
+import java.time.LocalDate;
 
 import javax.persistence.*;
+import javax.validation.constraints.*;
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -19,8 +21,12 @@ public class News implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(name = "text")
+    @NotNull
+    @Column(name = "text", nullable = false)
     private String text;
+
+    @Column(name = "date", nullable = false)
+    private LocalDate date;
 
     public Long getId() {
         return id;
@@ -38,6 +44,14 @@ public class News implements Serializable {
         this.text = text;
     }
 
+    public LocalDate getDate() {
+        return date;
+    }
+
+    public void setDate(LocalDate date) {
+        this.date = date;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -46,8 +60,12 @@ public class News implements Serializable {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
+
         News news = (News) o;
-        return Objects.equals(id, news.id);
+
+        if ( ! Objects.equals(id, news.id)) return false;
+
+        return true;
     }
 
     @Override
@@ -60,6 +78,7 @@ public class News implements Serializable {
         return "News{" +
             "id=" + id +
             ", text='" + text + "'" +
+            ", date='" + date + "'" +
             '}';
     }
 }

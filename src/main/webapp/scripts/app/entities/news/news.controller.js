@@ -2,7 +2,7 @@
 
 angular.module('simpleApp')
     .controller('NewsController', function ($scope, $state, $modal, News) {
-
+      
         $scope.newss = [];
         $scope.loadAll = function() {
             News.query(function(result) {
@@ -20,6 +20,7 @@ angular.module('simpleApp')
         $scope.clear = function () {
             $scope.news = {
                 text: null,
+                date: null,
                 id: null
             };
         };

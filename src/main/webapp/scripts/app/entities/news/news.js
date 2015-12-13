@@ -5,7 +5,7 @@ angular.module('simpleApp')
         $stateProvider
             .state('news', {
                 parent: 'entity',
-                url: '/news',
+                url: '/newss',
                 data: {
                     authorities: ['ROLE_USER'],
                     pageTitle: 'simpleApp.news.home.title'
@@ -62,6 +62,7 @@ angular.module('simpleApp')
                             entity: function () {
                                 return {
                                     text: null,
+                                    date: null,
                                     id: null
                                 };
                             }

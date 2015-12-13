@@ -1,5 +1,5 @@
 
-<form name="editForm" role="form" novalidate ng-submit="save()">
+<form name="editForm" role="form" novalidate ng-submit="save()" show-validation>
 
     <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
@@ -14,9 +14,21 @@
                     ng-model="news.id" readonly />
         </div>
         <div class="form-group">
-            <label class="control-label" translate="simpleApp.news.text" for="field_text">Text</label>
+            <label translate="simpleApp.news.text" for="field_text">Text</label>
             <input type="text" class="form-control" name="text" id="field_text"
                     ng-model="news.text"
+                    required />
+            <div ng-show="editForm.text.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.text.$error.required" translate="entity.validation.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label translate="simpleApp.news.date" for="field_date">Date</label>
+            <input type="date" class="form-control" name="date" id="field_date"
+                    ng-model="news.date"
                      />
         </div>
 

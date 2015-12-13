@@ -2,7 +2,7 @@
     "simpleApp": {
         "news" : {
             "home": {
-                "title": "News",
+                "title": "Newss",
                 "createLabel": "Create a new News",
                 "createOrEditLabel": "Create or edit a News"
             },
@@ -15,7 +15,8 @@
             "detail": {
                 "title": "News"
             },
-            "text": "Text"
+            "text": "Text",
+            "date": "Date"
         }
     }
 }

@@ -67,7 +67,7 @@ class NewsGatlingTest extends Simulation {
             .exec(http("Create new news")
             .post("/api/newss")
             .headers(headers_http_authenticated)
-            .body(StringBody("""{"id":null, "text":"SAMPLE_TEXT"}""")).asJSON
+            .body(StringBody("""{"id":null, "text":"SAMPLE_TEXT", "date":"2020-01-01T00:00:00.000Z"}""")).asJSON
             .check(status.is(201))
             .check(headerRegex("Location", "(.*)").saveAs("new_news_url")))
             .pause(10)

@@ -23,6 +23,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -43,6 +45,9 @@ public class NewsResourceIntTest {
 
     private static final String DEFAULT_TEXT = "AAAAA";
     private static final String UPDATED_TEXT = "BBBBB";
+
+    private static final LocalDate DEFAULT_DATE = LocalDate.ofEpochDay(0L);
+    private static final LocalDate UPDATED_DATE = LocalDate.now(ZoneId.systemDefault());
 
     @Inject
     private NewsRepository newsRepository;
@@ -71,6 +76,7 @@ public class NewsResourceIntTest {
     public void initTest() {
         news = new News();
         news.setText(DEFAULT_TEXT);
+        news.setDate(DEFAULT_DATE);
     }
 
     @Test
@@ -90,6 +96,25 @@ public class NewsResourceIntTest {
         assertThat(newss).hasSize(databaseSizeBeforeCreate + 1);
         News testNews = newss.get(newss.size() - 1);
         assertThat(testNews.getText()).isEqualTo(DEFAULT_TEXT);
+        assertThat(testNews.getDate()).isEqualTo(DEFAULT_DATE);
+    }
+
+    @Test
+    @Transactional
+    public void checkTextIsRequired() throws Exception {
+        int databaseSizeBeforeTest = newsRepository.findAll().size();
+        // set the field null
+        news.setText(null);
+
+        // Create the News, which fails.
+
+        restNewsMockMvc.perform(post("/api/newss")
+                .contentType(TestUtil.APPLICATION_JSON_UTF8)
+                .content(TestUtil.convertObjectToJsonBytes(news)))
+                .andExpect(status().isBadRequest());
+
+        List<News> newss = newsRepository.findAll();
+        assertThat(newss).hasSize(databaseSizeBeforeTest);
     }
 
     @Test
@@ -103,7 +128,8 @@ public class NewsResourceIntTest {
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$.[*].id").value(hasItem(news.getId().intValue())))
-                .andExpect(jsonPath("$.[*].text").value(hasItem(DEFAULT_TEXT.toString())));
+                .andExpect(jsonPath("$.[*].text").value(hasItem(DEFAULT_TEXT.toString())))
+                .andExpect(jsonPath("$.[*].date").value(hasItem(DEFAULT_DATE.toString())));
     }
 
     @Test
@@ -117,7 +143,8 @@ public class NewsResourceIntTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON))
             .andExpect(jsonPath("$.id").value(news.getId().intValue()))
-            .andExpect(jsonPath("$.text").value(DEFAULT_TEXT.toString()));
+            .andExpect(jsonPath("$.text").value(DEFAULT_TEXT.toString()))
+            .andExpect(jsonPath("$.date").value(DEFAULT_DATE.toString()));
     }
 
     @Test
@@ -138,6 +165,7 @@ public class NewsResourceIntTest {
 
         // Update the news
         news.setText(UPDATED_TEXT);
+        news.setDate(UPDATED_DATE);
 
         restNewsMockMvc.perform(put("/api/newss")
                 .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -149,6 +177,7 @@ public class NewsResourceIntTest {
         assertThat(newss).hasSize(databaseSizeBeforeUpdate);
         News testNews = newss.get(newss.size() - 1);
         assertThat(testNews.getText()).isEqualTo(UPDATED_TEXT);
+        assertThat(testNews.getDate()).isEqualTo(UPDATED_DATE);
     }
 
     @Test

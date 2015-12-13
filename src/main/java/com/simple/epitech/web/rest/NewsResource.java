@@ -13,6 +13,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.inject.Inject;
+import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
@@ -37,7 +38,7 @@ public class NewsResource {
         method = RequestMethod.POST,
         produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
-    public ResponseEntity<News> createNews(@RequestBody News news) throws URISyntaxException {
+    public ResponseEntity<News> createNews(@Valid @RequestBody News news) throws URISyntaxException {
         log.debug("REST request to save News : {}", news);
         if (news.getId() != null) {
             return ResponseEntity.badRequest().header("Failure", "A new news cannot already have an ID").body(null);
@@ -55,7 +56,7 @@ public class NewsResource {
         method = RequestMethod.PUT,
         produces = MediaType.APPLICATION_JSON_VALUE)
     @Timed
-    public ResponseEntity<News> updateNews(@RequestBody News news) throws URISyntaxException {
+    public ResponseEntity<News> updateNews(@Valid @RequestBody News news) throws URISyntaxException {
         log.debug("REST request to update News : {}", news);
         if (news.getId() == null) {
             return createNews(news);
