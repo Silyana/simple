@@ -7,9 +7,10 @@
             "entities": {
                 "main": "Entités",
                 "editor" : "Editeur",
-                "product": "Product",
-                "cart": "Cart",
-                "news": "News",
+                "categories": "Catégories",
+                "product": "Produits",
+                "cart": "Paniers",
+                "news": "Dernières nouvelles",
                 "additionalEntity": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {
