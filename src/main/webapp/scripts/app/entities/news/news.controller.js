@@ -2,7 +2,7 @@
 
 angular.module('simpleApp')
     .controller('NewsController', function ($scope, $state, $modal, News) {
-      
+
         $scope.newss = [];
         $scope.loadAll = function() {
             News.query(function(result) {
