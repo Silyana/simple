@@ -1,0 +1,22 @@
+{
+    "simpleApp": {
+        "news" : {
+            "home": {
+                "title": "Newss",
+                "createLabel": "Créer un nouveau News",
+                "createOrEditLabel": "Créer ou éditer un News"
+            },
+            "created": "Un nouveau News a été créé avec l'identifiant {{ param }}",
+            "updated": "Le News avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le News avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le News {{ id }} ?"
+            },
+            "detail": {
+                "title": "News"
+            },
+            "text": "Text"
+        }
+    }
+}
+

@@ -9,6 +9,7 @@
                 "view": "View",
                 "product": "Product",
                 "cart": "Cart",
+                "news": "News",
                 "additionalEntity": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {
